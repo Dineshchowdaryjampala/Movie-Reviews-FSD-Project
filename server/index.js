@@ -7,32 +7,6 @@ import routes from "./src/routes/index.js";
 
 dotenv.config();
 
-let cachedDb = null;
-
-async function connectToDatabase() {
-  if (cachedDb) {
-    return cachedDb;
-  }
-  try {
-    console.log("Attempting to connect to MongoDB...");
-    const db = await mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
-      socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
-    });
-    console.log("MongoDB connected successfully");
-    cachedDb = db;
-    return db;
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
-    throw error;
-  }
-}
-
-// Connect to MongoDB when the module is imported
-connectToDatabase().catch(console.error);
-
 const app = express();
 
 app.use(cors());
@@ -40,12 +14,40 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Lightweight database connection check middleware
-app.use(async (req, res, next) => {
-  if (!mongoose.connection.readyState) {
-    return res.status(503).json({ error: 'Database connection not ready' });
+let isConnected = false;
+
+async function connectToDatabase() {
+  if (isConnected) {
+    console.log('Using existing database connection');
+    return;
   }
-  next();
+
+  try {
+    console.log("Attempting to connect to MongoDB...");
+    await mongoose.connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    });
+    isConnected = true;
+    console.log("MongoDB connected successfully");
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    isConnected = false;
+    throw error;
+  }
+}
+
+// Middleware to ensure database connection
+app.use(async (req, res, next) => {
+  try {
+    await connectToDatabase();
+    next();
+  } catch (error) {
+    console.error('Database connection failed', error);
+    res.status(503).json({ error: 'Service Unavailable: Database connection failed' });
+  }
 });
 
 // Routes
@@ -57,12 +59,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!', details: err.message });
 });
 
-// Health check route
-app.get('/health', (req, res) => {
-  res.status(200).json({ 
-    status: 'OK',
-    dbState: mongoose.connection.readyState
-  });
-});
+// Handler for serverless function
+const handler = async (req, res) => {
+  await app(req, res);
+};
 
-export default app;
+export default handler;
