@@ -1,12 +1,12 @@
-import express from "express";
-import cookieParser from "cookie-parser";
-import cors from "cors";
-import http from "http";
-import mongoose from "mongoose";
-import "dotenv/config";
-import routes from "./src/routes/index.js";
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const mongoose = require("mongoose");
+require("dotenv").config();
+const routes = require("./src/routes/index.js");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -14,18 +14,25 @@ app.use(cookieParser());
 
 app.use("/api/v1", routes);
 
-const port = process.env.PORT || 5000;
+// Connect to MongoDB
+let cachedDb = null;
+async function connectToDatabase() {
+  if (cachedDb) {
+    return cachedDb;
+  }
+  const db = await mongoose.connect(process.env.MONGODB_URL);
+  cachedDb = db;
+  return db;
+}
 
-const server = http.createServer(app);
-
-mongoose.connect(process.env.MONGODB_URL).then(() => {
-  console.log("Mongodb connected");
-  server.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-  });
-}).catch((err) => {
-  console.log({ err });
-  process.exit(1);
+app.use(async (req, res, next) => {
+  try {
+    await connectToDatabase();
+    next();
+  } catch (error) {
+    console.error('Database connection failed', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
-//test
+module.exports = app;
