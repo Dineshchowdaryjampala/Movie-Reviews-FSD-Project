@@ -3,7 +3,6 @@
 
 Welcome to the **Movie Reviews System**, a sleek and modern web application where users can view, review, and rate movies and TV shows. Built with the MERN stack and leveraging the powerful TMDB API, this app provides a seamless and engaging experience for movie and TV enthusiasts.
 
-![Movie Reviews System](https://github.com/Dineshchowdaryjampala/Movie-Reviews-FSD-Project/blob/main/client/public/rename1.png)
 
 ## 🚀 Live Demo
 
@@ -19,8 +18,23 @@ Check out the live application here: [Movie Reviews System](https://movie-review
 
 ## 🛠️ Tech Stack
 
-- 💻 **Frontend**: React.js
-- 🖥️ **Backend**: Node.js, Express.js
+### Front-end
+
+- ⚛️ **React**: Building user interfaces with React
+- 🎨 **Material UI**: A popular React UI framework for creating visually appealing interfaces
+- 🖼️ **SwiperJS**: A swiper/slider component for images and other content
+- 🌐 **React Router v6**: For handling navigation within the app
+- 📋 **Formik**: For building and validating forms in React
+- ✅ **Yup**: A schema validation library for form validation
+- 🔄 **Axios**: For making HTTP requests to APIs
+
+### Back-end
+
+- 🖥️ **Express**: A fast and minimalist web application framework for Node.js
+- 🛡️ **Express Validator**: Middleware for validation and sanitation of incoming data
+- 🔐 **Jsonwebtoken**: For handling user authentication and authorization
+- 🗄️ **Mongoose**: Elegant MongoDB object modeling for Node.js
+- 🔄 **Axios**: For making HTTP requests from the server
 - 🗄️ **Database**: MongoDB
 - 🌐 **External API**: [TMDB](https://www.themoviedb.org/documentation/api)
 - 🚢 **Deployment**: Vercel
@@ -36,36 +50,59 @@ Check out the live application here: [Movie Reviews System](https://movie-review
 
 ## 📚 Installation and Setup
 
-1. **Clone the repository**
- 
-   ```bash
-   git clone https://github.com/yourusername/movie-review-system.git
-   cd movie-review-system
-   ```
-
-2. **Install dependencies**
+1. **Clone or download this repository to your local machine:**
 
    ```bash
-   npm install
-   cd client
-   npm install
-   cd ..
+   git clone https://github.com/yourusername/movie-verse.git
+   cd movie-verse
    ```
 
-3. **Set up environment variables**
+2. **Install dependencies for the server:**
 
-   Create a `.env` file in the root directory and add your TMDB API key and MongoDB connection string:
+   ```bash
+   cd server
+   npm install
+   ```
+
+3. **Create a `.env` file in the `server` directory and add the following environment variables:**
 
    ```plaintext
-   TMDB_API_KEY=your_tmdb_api_key
-   MONGO_URI=your_mongodb_connection_string
+   MONGODB_URL=your_mongodb_connection_string
+   PORT=5000
+   TOKEN_SECRET_KEY=your_secret_key_for_jwt
+   TMDB_BASE_URL=https://api.themoviedb.org/3/
+   TMDB_KEY=your_tmdb_api_key
    ```
 
-4. **Run the application**
-
+4. **Install dependencies for the client:**
+ 
    ```bash
-   npm run dev
+   cd client
+   npm install
    ```
+
+5. **Run the app:**
+
+   - **Run the server:**
+
+      ```bash
+     cd server
+     npm start
+     ```
+
+   - **Run the client:**
+   
+     ```bash
+     cd client
+     npm start
+     ```
+
+6. **Open** [http://localhost:3000](http://localhost:3000) **to view it in the browser.**
+
+## 📄 Resources for API Keys
+
+- [TMDB](https://www.themoviedb.org/documentation/api)
+- [MongoDB](https://www.mongodb.com/)
 
 ## 👥 Authors
 
