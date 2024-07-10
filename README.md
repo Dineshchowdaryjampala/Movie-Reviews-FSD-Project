@@ -106,10 +106,10 @@ Check out the live application here: [Movie Reviews System](https://movie-review
 
 ## 👥 Authors
 
-- NSL Karthikeya Reddy
-- J Dinesh Chowdary
-- AK Charith Kumar Reddy
-- B Satish
+- [NSL Karthikeya Reddy](https://github.com/NSL-Karthikeya-Reddy)
+- [J Dinesh Chowdary](https://github.com/Dineshchowdaryjampala)
+- [AK Charith Kumar Reddy](https://github.com/Charith0007821)
+- [B Satish](https://github.com/Satish0709)
 
 ---
 
