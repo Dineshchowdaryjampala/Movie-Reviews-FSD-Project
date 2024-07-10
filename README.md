@@ -3,7 +3,7 @@
 
 Welcome to the **Movie Reviews System**, a sleek and modern web application where users can view, review, and rate movies and TV shows. Built with the MERN stack and leveraging the powerful TMDB API, this app provides a seamless and engaging experience for movie and TV enthusiasts.
 
-![Movie Reviews System](path_to_your_logo_or_banner_image)
+![Movie Reviews System](https://github.com/Dineshchowdaryjampala/Movie-Reviews-FSD-Project/blob/main/client/public/rename.png)
 
 ## 🚀 Live Demo
 
@@ -27,9 +27,12 @@ Check out the live application here: [Movie Reviews System](https://movie-review
 
 ## 🖼️ Screenshots
 
-![Home Page](path_to_home_page_screenshot)
-![Movie Details](path_to_movie_details_screenshot)
-![Review Page](path_to_review_page_screenshot)
+![Home Page](https://github.com/Dineshchowdaryjampala/Movie-Reviews-FSD-Project/blob/main/screenshots/1.png)
+![Home Page](https://github.com/Dineshchowdaryjampala/Movie-Reviews-FSD-Project/blob/main/screenshots/10.png)
+![Light Mode](https://github.com/Dineshchowdaryjampala/Movie-Reviews-FSD-Project/blob/main/screenshots/6.png)
+![Movie Details](https://github.com/Dineshchowdaryjampala/Movie-Reviews-FSD-Project/blob/main/screenshots/7.png)
+![Review Page](https://github.com/Dineshchowdaryjampala/Movie-Reviews-FSD-Project/blob/main/screenshots/8.png)
+![Favourites Page](https://github.com/Dineshchowdaryjampala/Movie-Reviews-FSD-Project/blob/main/screenshots/9.png)
 
 ## 📚 Installation and Setup
 
