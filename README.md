@@ -76,6 +76,4 @@ Check out the live application here: [Movie Reviews System](https://movie-review
 
 ---
 
-Made with ❤️ by the Movie Reviews System Team as part of the Imarticus JAVA Full Stack Development Course.
-
-```
+Crafted with 💖 by the Movie Reviews System Team as part of the Imarticus JAVA Full Stack Development Course.
