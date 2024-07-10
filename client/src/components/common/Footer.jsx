@@ -35,7 +35,7 @@ const Footer = () => {
           align="center"
           sx={{ marginTop: "1rem" }}
         >
-          Created with ❤️ by - NSL Karthikeya Reddy, J Dinesh Chowdary, AK Charith Kumar Reddy, and B Satish.
+          Handcrafted with 💖 by - NSL Karthikeya Reddy, J Dinesh Chowdary, AK Charith Kumar Reddy, and B Satish.
         </Typography>
       </Paper>
     </Container>
