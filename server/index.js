@@ -1,7 +1,7 @@
 // Import necessary modules and packages
 import express from "express"; // Import Express framework
 import cookieParser from "cookie-parser"; // Middleware for handling cookies
-import cors from "cors";
+import cors from "cors"; // Middleware for enabling CORS
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import routes from "./src/routes/index.js";
