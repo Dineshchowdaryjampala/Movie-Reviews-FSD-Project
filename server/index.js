@@ -1,3 +1,4 @@
+// Import necessary modules and packages
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
